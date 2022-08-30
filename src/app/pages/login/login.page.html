@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="centrar-contenido">
+  <ion-card>
+    <div>
+    <img src="assets/img/login.png" width="180px"/>
+  </div>
+    <ion-card-header>
+      <ion-card-subtitle>INGRESE SU CORREO</ion-card-subtitle>
+      
+    </ion-card-header>
+    <ion-card-content>
+      
+      <ion-item>
+        <ion-label>Correo</ion-label>
+        <ion-input type="text" placeholder="Ingrese usuario" [(ngModel)]="user"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Contraseña</ion-label>
+        <ion-input type="password" placeholder="Ingrese contraseña" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-button (click)="login()">INGRESAR</ion-button>
+    </ion-card-content>
+  </ion-card>
+<div>
+  <a routerLink='/registrar'>¿No tienes cuenta? Registrate aquí </a>
+</div><!---cierre div boton-->
+</div>
+</ion-content>
