@@ -13,7 +13,7 @@
   <form [formGroup]="alumno" (ngSubmit)="registrar()">
     <ion-item>
       <ion-label position="stacked">Rut</ion-label>
-      <ion-input type="text" placeholder="Ingrese rut" formControlName="rut"></ion-input>
+      <ion-input type="text" placeholder="Ingrese rut con puntos y guión" formControlName="rut"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Nombre completo</ion-label>
@@ -21,7 +21,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Correo</ion-label>
-      <ion-input type="mail" placeholder="Ingrese Correo" formControlName="correo"></ion-input>
+      <ion-input type="mail" placeholder="Ej : juanitperez@gmail.com" formControlName="correo"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Fecha nacimiento</ion-label>

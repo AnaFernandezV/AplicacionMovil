@@ -11,7 +11,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class LoginPage implements OnInit {
 
   //vamos a crear las variables necesarias:
-  user: string;
+  correo: string;
   password: string;
 
   constructor(private toastController: ToastController, private router: Router, 
@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
 
   //método para ingresar a home:
   login(){
-    var usuarioLogin = this.usuarioService.validarRutPassword(this.user, this.password);
+    var usuarioLogin = this.usuarioService.validarCorreoPass(this.correo, this.password);
 
     //validar que al ingresar admin admin en el formulario, me diga hola:
     if (usuarioLogin != undefined) {
@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
   //toast
   async tostadaError() {
     const toast = await this.toastController.create({
-      message: 'Usuario o contraseña incorrectos!!!',
+      message: 'Correo o contraseña incorrectos!!!',
       duration: 3000
     });
     toast.present();

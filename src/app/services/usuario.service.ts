@@ -10,6 +10,7 @@ export class UsuarioService {
     {
       rut: '11.111.111-1',
       nom_completo: 'Satan',
+      correo: 'santanas@gmail.com',
       fecha_nac: '1990-03-24',
       semestre: 1,
       password: 'satan123',
@@ -17,7 +18,8 @@ export class UsuarioService {
     },
     {
       rut: '11.111.111-2',
-      nom_completo: 'Satan',
+      nom_completo: 'Jose Miguel',
+      correo: 'miguelito@gmail.com',
       fecha_nac: '1990-03-24',
       semestre: 1,
       password: 'satan123',
@@ -57,6 +59,9 @@ export class UsuarioService {
   //validar rut y contraseña: método que recibe rut y password y me entrega un JSON de un usuario
   validarRutPassword(rut, pass){
     return this.usuarios.find(u => u.rut == rut && u.password == pass);
+  }
+  validarCorreoPass(correo, pass){
+    return this.usuarios.find(u => u.correo == correo && u.password == pass);
   }
 
 }
