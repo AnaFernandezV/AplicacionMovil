@@ -1,15 +1,16 @@
+
 #centrar-contenido{
 width: 100%;
 margin: 0 auto;
-padding: 15px;
-background-color: aquamarine;
+padding: 0px;
 text-align: center;
 
 }
 
-.centrar-img{
 
-align-content: center;
-margin: 0 auto;
-background-color: beige;
+#centrar-contenido img{    
+    width:180px;
+    margin-top: 15px;
+    padding: 0;
+
 }

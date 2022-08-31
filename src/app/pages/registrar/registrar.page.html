@@ -1,12 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>registrar</ion-title>
-    <ion-button slot="end" routerLink="/login">
-      <ion-icon name="log-in-outline"></ion-icon>
-      Volver a login
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
+<div id="color-fondo">
+
+  <div id="registrapp">
+    <img src="assets/img/registrApp2.png">
+     </div>
+  
+  </div><!----cierre div header-->
+  
 
 <ion-content>
 
@@ -39,7 +38,9 @@
       <ion-label position="stacked">Repita Contraseña</ion-label>
       <ion-input type="password" placeholder="Ingrese nuevamente contraseña" [(ngModel)]="verificar_password" [ngModelOptions]="{standalone: 'true'}"></ion-input>
     </ion-item>
-    <ion-button type="submit" [disabled]="!alumno.valid">REGISTRAR</ion-button>
+    <div id="centrar-boton">
+    <button type="submit" [disabled]="!alumno.valid" id="boton">REGISTRAR</button>
+  </div><!--cierre div boton---->
   </form>
 
   <!-- <h1>LISTA DE USUARIOS</h1>

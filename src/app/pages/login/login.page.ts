@@ -35,13 +35,10 @@ export class LoginPage implements OnInit {
   //toast
   async tostadaError() {
     const toast = await this.toastController.create({
-      message: 'Correo o contraseña incorrectos!!!',
+      message: 'Correo o Contraseña incorrectos!!!',
       duration: 3000
     });
     toast.present();
   }
-
-
-
 
 }
