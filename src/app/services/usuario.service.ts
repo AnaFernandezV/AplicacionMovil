@@ -9,11 +9,11 @@ export class UsuarioService {
   usuarios: any[] = [
     {
       rut: '11.111.111-1',
-      nom_completo: 'Satan',
-      correo: 'santanas@gmail.com',
+      nom_completo: 'Jaime Gonzalez',
+      correo: 'jaime@gmail.com',
       fecha_nac: '1990-03-24',
       semestre: 1,
-      password: 'satan123',
+      password: 'jaime123',
       tipo_usuario: 'administrador'
     },
     {
@@ -22,7 +22,7 @@ export class UsuarioService {
       correo: 'miguelito@gmail.com',
       fecha_nac: '1990-03-24',
       semestre: 1,
-      password: 'satan123',
+      password: 'miguel123',
       tipo_usuario: 'alumno'
     }
   ];
@@ -31,25 +31,25 @@ export class UsuarioService {
 
   //métodos del CRUD:
   agregarUsuario(usuario): boolean{
-    if ( this.obtenerUsuario(usuario.rut) == undefined ) {
+    if ( this.obtenerUsuario(usuario.correo) == undefined ) {
       this.usuarios.push(usuario);
       return true;
     }
     return false;
   }
-  eliminarUsuario(rut){
+  eliminarUsuario(correo){
     this.usuarios.forEach((usu, index) => {
-      if (usu.rut == rut) {
+      if (usu.correo == correo) {
         this.usuarios.splice(index, 1);
       }
     });
   }
   modificarUsuario(usuario){
-    var index = this.usuarios.findIndex(usu => usu.rut == usuario.rut);
+    var index = this.usuarios.findIndex(usu => usu.correo == usuario.correo);
     this.usuarios[index] = usuario;
   }
-  obtenerUsuario(rut){
-    return this.usuarios.find(usuario => usuario.rut == rut);
+  obtenerUsuario(correo){
+    return this.usuarios.find(usuario => usuario.correo == correo);
   }
   obtenerUsuarios(){
     return this.usuarios;
@@ -62,6 +62,9 @@ export class UsuarioService {
   }
   validarCorreoPass(correo, pass){
     return this.usuarios.find(u => u.correo == correo && u.password == pass);
+  }
+  validarRecuperarPass(correo){
+    return this.usuarios.find(u => u.correo == correo);
   }
 
 }

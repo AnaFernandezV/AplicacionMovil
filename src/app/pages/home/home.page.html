@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-    <ion-button slot="end" routerLink="/login">CERRAR SESION</ion-button>
-  </ion-toolbar>
+    <div class="boton-atras">
+      <img src="assets/img/atras.png" routerLink='/login'>
+
+    </div><!---cierre boton atras-->
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -47,8 +48,8 @@
   <h1>LISTA DE USUARIOS</h1>
   <ion-list *ngFor="let usuario of usuarios">
     <p>{{usuario.rut}} - {{usuario.nom_completo}} - {{usuario.fecha_nac}} - {{usuario.semestre}}</p>
-    <ion-button color="warning" (click)="buscar(usuario.rut)">Buscar</ion-button>
-    <ion-button color="danger" (click)="eliminar(usuario.rut)">Eliminar</ion-button>
+    <ion-button color="warning" (click)="buscar(usuario.correo)">Buscar</ion-button>
+    <ion-button color="danger" (click)="eliminar(usuario.correo)">Eliminar</ion-button>
   </ion-list>
 
 </ion-content>

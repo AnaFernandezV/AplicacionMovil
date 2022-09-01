@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
 
     //validar que al ingresar admin admin en el formulario, me diga hola:
     if (usuarioLogin != undefined) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/alumno']);
     }else{
       this.tostadaError();
     }

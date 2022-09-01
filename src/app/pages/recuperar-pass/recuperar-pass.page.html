@@ -1,17 +1,26 @@
 <ion-header>
- 
-    <ion-title>Recuperar contraseña</ion-title>
-  
+  <ion-toolbar>
+    <div class="boton-atras">
+      <img src="assets/img/atras.png" routerLink='/login'>
+    </div>
+    <div id="color-fondo">
+
+      <div id="registrapp">
+        <img src="assets/img/registrApp2.png">
+      </div>
+    </div>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content>
 <div id="contenido">
 <div><img src="assets/img/olvido-pass.png"></div><!--cierre div imagen-->
 
 
-  <form>  
+  
     <ion-label position="stacked">Ingrese correo</ion-label>
-    <ion-input type="mail"></ion-input>
-    <ion-button>Cancelar</ion-button><ion-button>Enviar</ion-button>
-    </form>
+    <ion-input type="mail" [(ngModel)]="correo"></ion-input>
+    <ion-button (click)="recuperar()">Enviar</ion-button>
+  
     </div><!------cierre div contenido----->
 </ion-content>

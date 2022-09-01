@@ -1,11 +1,16 @@
 <div id="color-fondo">
+<div class="boton-atras">
+<img src="assets/img/atras.png" routerLink='/login'>
+  
+</div><!---cierre boton atras -->
 
-  <div id="registrapp">
-    <img src="assets/img/registrApp2.png">
-     </div>
+
+<div id="registrapp">
+  <img src="assets/img/registrApp2.png">
+</div><!---cierre logo registrapp-->
+
   
-  </div><!----cierre div header-->
-  
+</div><!----cierre div header-->
 
 <ion-content>
 
@@ -38,9 +43,10 @@
       <ion-label position="stacked">Repita Contraseña</ion-label>
       <ion-input type="password" placeholder="Ingrese nuevamente contraseña" [(ngModel)]="verificar_password" [ngModelOptions]="{standalone: 'true'}"></ion-input>
     </ion-item>
-    <div id="centrar-boton">
-    <button type="submit" [disabled]="!alumno.valid" id="boton">REGISTRAR</button>
-  </div><!--cierre div boton---->
+    <div id="centrar-boton" >
+      <button type="submit" [disabled]="!alumno.valid" id="boton" style="margin-right: 3%;">Registrar</button> 
+ 
+    </div><!--cierre div boton---->
   </form>
 
   <!-- <h1>LISTA DE USUARIOS</h1>
