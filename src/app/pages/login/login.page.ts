@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   correo: string;
   password: string;
 
-  constructor(private toastController: ToastController, private router: Router, 
+  constructor(private alertController: AlertController, private router: Router, 
     private usuarioService: UsuarioService) { }
 
   ngOnInit() {
@@ -24,21 +24,31 @@ export class LoginPage implements OnInit {
   login(){
     var usuarioLogin = this.usuarioService.validarCorreoPass(this.correo, this.password);
 
-    //validar que al ingresar admin admin en el formulario, me diga hola:
+    //validar que ingrese los distintos tipos de usuarios
     if (usuarioLogin != undefined) {
-      this.router.navigate(['/alumno']);
+      if(usuarioLogin.tipo_usuario == 'administrador'){
+        this.router.navigate(['/home']);
+      }else if(usuarioLogin.tipo_usuario == 'docente'){
+        this.router.navigate(['/docente'])
+      }else {
+        this.router.navigate(['/alumno'])
+      }
+
     }else{
-      this.tostadaError();
+      this.alertaNovalido();
     }
   }
 
-  //toast
-  async tostadaError() {
-    const toast = await this.toastController.create({
-      message: 'Correo o Contraseña incorrectos!!!',
-      duration: 3000
+  //Alertas
+  async alertaNovalido() {
+    const alert = await this.alertController.create({
+      subHeader: 'Importante Usuario!',
+      message: 'Debes ingresar un corrreo valido',
+      buttons: ['OK'],
     });
-    toast.present();
+
+    await alert.present();
   }
+
 
 }

@@ -1,19 +1,18 @@
+<div id="fondo">
 <div id="color-fondo">
 
 <div id="registrapp">
   <img src="assets/img/registrApp2.png">
-   </div>
-
+</div>
 </div><!----cierre div header-->
-<div id="fondo">
-<ion-content>
-  <div id="centrar-contenido">
-  <ion-card>
-    <div id="loginimg">
+
+<div id="centrar-contenido">
+
+    <div id="login-img">
     <img src="assets/img/login.png" />
-  </div>
+    </div><!---div imagen-->
     <ion-card-header>
-      <ion-card-subtitle>INGRESE SU CORREO</ion-card-subtitle>      
+      <h3>INGRESE SU CORREO</h3>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
@@ -26,16 +25,13 @@
       </ion-item>
       <button (click)="login()" id="boton" >INGRESAR</button>
     </ion-card-content>
-  </ion-card>
+ 
   <div>
     <a routerLink='/registrar'>¿No tienes cuenta? Registrate aquí </a>
   </div>
   <div>
     <a routerLink='/recuperar-pass'>¿Has olvidado tu contraseña? Recuperala Aquí</a>
-  <!---cierre div boton-->
-  </div>
-</div>
+  </div><!---cierre div boton-->
+</div><!---div cierre contenido-->
 
 
-</ion-content>
-</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 
@@ -26,7 +27,7 @@ export class RegistrarPage implements OnInit {
   //usuarios: any[] = [];
   verificar_password: string;
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {
     //this.usuarios = this.usuarioService.obtenerUsuarios();
@@ -35,14 +36,35 @@ export class RegistrarPage implements OnInit {
   //método del formulario
   registrar(){
     if (this.alumno.controls.password.value != this.verificar_password) {
-      alert('CONTRASEÑAS NO COINCIDEN!');
+      this.alertaContra();
       return;
     }
     this.usuarioService.agregarUsuario(this.alumno.value);
-    alert('ALUMNO REGISTRADO!');
+    this.alertaRegistrado();
     this.router.navigate(['/login']);
     //this.alumno.reset();
     //this.verificar_password = '';
+  }
+
+
+  async alertaRegistrado() {
+    const alert = await this.alertController.create({
+      header: 'Felicidades!',
+      subHeader: 'Alumno Registrado',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async alertaContra() {
+    const alert = await this.alertController.create({
+      header: 'Felicidades!',
+      subHeader: 'Alumno Registrado!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
 }

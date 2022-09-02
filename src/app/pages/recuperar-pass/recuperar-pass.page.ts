@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { Alert } from 'selenium-webdriver';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -13,7 +14,7 @@ export class RecuperarPassPage implements OnInit {
   //Variable Para recuperar contraseña
   correo: string;
 
-  constructor(private router: Router, private usuarioService: UsuarioService ) { }
+  constructor(private router: Router, private usuarioService: UsuarioService , private alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -24,10 +25,30 @@ export class RecuperarPassPage implements OnInit {
 
     //validar que al ingresar admin admin en el formulario, me diga hola:
     if (usuarioRecu != undefined) {
-      alert('Correo Enviado Exitosamente!');
+      this.alertaRecuperarValid();
     }else{
-      alert('Ingrese Un Correo Válido!');
+      this.alertaRecuperarNovalid();
     }
+  }
+
+  async alertaRecuperarValid() {
+    const alert = await this.alertController.create({
+      header: 'Check Your Email!',
+      subHeader: 'Correo Enviado Exitosamente !',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async alertaRecuperarNovalid() {
+    const alert = await this.alertController.create({
+      header: 'Importante!!',
+      subHeader: 'Debes Ingresar Un Correo Valido !',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
 }

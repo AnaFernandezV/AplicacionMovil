@@ -19,7 +19,7 @@ export class UsuarioService {
     {
       rut: '11.111.111-2',
       nom_completo: 'Jose Miguel',
-      correo: 'miguelito@gmail.com',
+      correo: 'miguelito@duocuc.cl',
       fecha_nac: '1990-03-24',
       semestre: 1,
       password: 'miguel123',
