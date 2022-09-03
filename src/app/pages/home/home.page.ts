@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 
@@ -19,33 +20,37 @@ export class HomePage implements OnInit{
     fecha_nac: new FormControl('', Validators.required),
     semestre: new FormControl('', [Validators.required, Validators.min(1), Validators.max(8)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(18)]),
-    tipo_usuario: new FormControl('alumno')
+    tipo_usuario: new FormControl('',[Validators.required])
   });
 
   //VAMOS A CREAR UNA VARIABLE PARA OBTENER LA LISTA DE USUARIOS DEL SERVICIO DE USUARIOS:
   usuarios: any[] = [];
   verificar_password: string;
+  today: any;
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+  constructor(private usuarioService: UsuarioService, private router: Router, private alertController: AlertController) {}
 
   ngOnInit() {
     this.usuarios = this.usuarioService.obtenerUsuarios();
+    this.getDate();
   }
+
+  getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2); console.log(this.today); }
 
   //método del formulario
   registrar(){
     if (this.alumno.controls.password.value != this.verificar_password) {
-      alert('CONTRASEÑAS NO COINCIDEN!');
+      this.alertaContra;
       return;
     }
     
     var registrado: boolean = this.usuarioService.agregarUsuario(this.alumno.value);
     if (!registrado) {
-      alert('USUARIO YA EXISTE!');
+      this.alertaExiste();
       return;
     }
 
-    alert('ALUMNO REGISTRADO!');
+    this.alertaRegistrado();
     this.alumno.reset();
     this.verificar_password = '';
   }
@@ -69,6 +74,37 @@ export class HomePage implements OnInit{
   limpiar(){
     this.alumno.reset();
     this.verificar_password = '';
+  }
+
+  //alert
+  async alertaContra() {
+    const alert = await this.alertController.create({
+      header: 'ERROR...!',
+      subHeader: 'Contraseñas No Coinciden!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async alertaExiste() {
+    const alert = await this.alertController.create({
+      header: 'Importante!',
+      subHeader: 'Usuario Ya existe!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async alertaRegistrado() {
+    const alert = await this.alertController.create({
+      header: 'Felicidades!',
+      subHeader: 'Usuario Registrado',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
 }

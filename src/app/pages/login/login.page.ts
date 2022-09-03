@@ -18,6 +18,7 @@ export class LoginPage implements OnInit {
     private usuarioService: UsuarioService) { }
 
   ngOnInit() {
+    
   }
 
   //método para ingresar a home:
