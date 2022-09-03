@@ -43,7 +43,7 @@ export class LoginPage implements OnInit {
   async alertaNovalido() {
     const alert = await this.alertController.create({
       subHeader: 'Importante Usuario!',
-      message: 'Debes ingresar un corrreo valido',
+      message: 'Correo o Contraseña Incorrectos',
       buttons: ['OK'],
     });
 

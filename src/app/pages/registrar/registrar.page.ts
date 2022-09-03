@@ -26,12 +26,16 @@ export class RegistrarPage implements OnInit {
   //VAMOS A CREAR UNA VARIABLE PARA OBTENER LA LISTA DE USUARIOS DEL SERVICIO DE USUARIOS:
   //usuarios: any[] = [];
   verificar_password: string;
+  today: any;
 
   constructor(private usuarioService: UsuarioService, private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {
     //this.usuarios = this.usuarioService.obtenerUsuarios();
+    this.getDate();
   }
+
+  getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2); console.log(this.today); }
 
   //método del formulario
   registrar(){
@@ -59,8 +63,8 @@ export class RegistrarPage implements OnInit {
 
   async alertaContra() {
     const alert = await this.alertController.create({
-      header: 'Felicidades!',
-      subHeader: 'Alumno Registrado!',
+      header: 'ERROR...!',
+      subHeader: 'Contraseñas No Coinciden!',
       buttons: ['OK'],
     });
 

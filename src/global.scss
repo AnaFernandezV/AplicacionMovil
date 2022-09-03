@@ -87,3 +87,15 @@
         position: fixed;
         background-color: black;
     }
+
+@media(max-width: 576px){
+
+    .responsive{
+        width: 100% !important;
+    }
+
+    .responsive-img{
+        width: 60% !important;
+    }
+    
+}    

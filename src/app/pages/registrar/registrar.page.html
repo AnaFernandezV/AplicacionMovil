@@ -29,7 +29,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Fecha nacimiento</ion-label>
-      <ion-input type="date" placeholder="Ingrese fecha nacimiento" formControlName="fecha_nac"></ion-input>
+      <ion-input [max]="today" displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" type="date" placeholder="Ingrese fecha nacimiento" formControlName="fecha_nac"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Semestre</ion-label>

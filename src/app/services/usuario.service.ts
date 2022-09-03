@@ -24,6 +24,15 @@ export class UsuarioService {
       semestre: 1,
       password: 'miguel123',
       tipo_usuario: 'alumno'
+    },
+    {
+      rut: '12.231.341-4',
+      nom_completo: 'Alan Gajardo',
+      correo: 'alan@profesor.duoc.cl',
+      fecha_nac: '1990-03-24',
+      semestre: 1,
+      password: 'alan123',
+      tipo_usuario: 'docente'
     }
   ];
 
