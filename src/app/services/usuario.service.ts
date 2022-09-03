@@ -40,25 +40,25 @@ export class UsuarioService {
 
   //métodos del CRUD:
   agregarUsuario(usuario): boolean{
-    if ( this.obtenerUsuario(usuario.correo) == undefined ) {
+    if ( this.obtenerUsuario(usuario.rut) == undefined && this.obtenerUsuario(usuario.correo) == undefined ) {
       this.usuarios.push(usuario);
       return true;
     }
     return false;
   }
-  eliminarUsuario(correo){
+  eliminarUsuario(rut){
     this.usuarios.forEach((usu, index) => {
-      if (usu.correo == correo) {
+      if (usu.rut == rut) {
         this.usuarios.splice(index, 1);
       }
     });
   }
   modificarUsuario(usuario){
-    var index = this.usuarios.findIndex(usu => usu.correo == usuario.correo);
+    var index = this.usuarios.findIndex(usu => usu.rut == usuario.rut);
     this.usuarios[index] = usuario;
   }
-  obtenerUsuario(correo){
-    return this.usuarios.find(usuario => usuario.correo == correo);
+  obtenerUsuario(rut){
+    return this.usuarios.find(usuario => usuario.rut == rut);
   }
   obtenerUsuarios(){
     return this.usuarios;
@@ -69,8 +69,8 @@ export class UsuarioService {
   validarRutPassword(rut, pass){
     return this.usuarios.find(u => u.rut == rut && u.password == pass);
   }
-  validarCorreoPass(correo, pass){
-    return this.usuarios.find(u => u.correo == correo && u.password == pass);
+  validarCorreoPass(correo){
+    return this.usuarios.find(u => u.correo == correo);
   }
   validarRecuperarPass(correo){
     return this.usuarios.find(u => u.correo == correo);

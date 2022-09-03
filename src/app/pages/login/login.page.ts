@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
 
   //método para ingresar a home:
   login(){
-    var usuarioLogin = this.usuarioService.validarCorreoPass(this.correo, this.password);
+    var usuarioLogin = this.usuarioService.validarCorreoPass(this.correo);
 
     //validar que ingrese los distintos tipos de usuarios
     if (usuarioLogin != undefined) {
