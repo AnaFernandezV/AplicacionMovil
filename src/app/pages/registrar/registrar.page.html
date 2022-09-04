@@ -3,17 +3,11 @@
 <img src="assets/img/atras.png" routerLink='/login'>
   
 </div><!---cierre boton atras -->
-
-
-<div id="registrapp">
-  <img src="assets/img/registrApp2.png">
-</div><!---cierre logo registrapp-->
-
-  
+<h1>Registrarse</h1>  
 </div><!----cierre div header-->
 
 <ion-content>
-
+<div id="centrar-contenido">
   <form [formGroup]="alumno" (ngSubmit)="registrar()">
     <ion-item>
       <ion-label position="stacked">Rut</ion-label>
@@ -43,15 +37,15 @@
       <ion-label position="stacked">Repita Contraseña</ion-label>
       <ion-input type="password" placeholder="Ingrese nuevamente contraseña" [(ngModel)]="verificar_password" [ngModelOptions]="{standalone: 'true'}"></ion-input>
     </ion-item>
-    <div id="centrar-boton" >
-      <button type="submit" [disabled]="!alumno.valid" id="boton" style="margin-right: 3%;">Registrar</button> 
- 
-    </div><!--cierre div boton---->
+   <div id="botoncito">
+    <button type="submit" [disabled]="!alumno.valid"  id="boton">Registrar</button> 
+  </div>
+
   </form>
 
   <!-- <h1>LISTA DE USUARIOS</h1>
   <ion-list *ngFor="let usuario of usuarios">
     <p>{{usuario.rut}} - {{usuario.nom_completo}} - {{usuario.fecha_nac}} - {{usuario.semestre}}</p>
   </ion-list> -->
-
+</div><!-----cierre div centrado contenido-->
 </ion-content>

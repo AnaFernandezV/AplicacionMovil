@@ -1,9 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <div class="boton-atras">
-      <img src="assets/img/atras.png" routerLink='/login'>
-
-    </div><!---cierre boton atras-->
+    <div id="color-fondo">
+      <div class="boton-atras">
+        <img src="assets/img/atras.png" routerLink='/login'>  
+        </div><!---cierre boton atras -->
+        
+        <div class="cerrar-sesion">
+          <img src="assets/img/logout.png" slot="end" routerLink='/login'>
+          </div><!---cierre cerrar sesion-->
+    <h1>Administrador</h1>
+      
+      </div><!----cierre div header--> 
 
     </ion-toolbar>
 </ion-header>
