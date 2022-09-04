@@ -38,7 +38,7 @@
       <ion-label position="stacked">Semestre</ion-label>
       <ion-input type="number" placeholder="Ingrese semestre" formControlName="semestre"></ion-input>
     </ion-item>
-    <ion-item>
+    
       <ion-list>
         <ion-item>
           <ion-label position="stacked" >Tipo Usuario</ion-label>
@@ -50,7 +50,7 @@
         </ion-item>
       </ion-list>
 
-    </ion-item>
+    
     <ion-item>
       <ion-label position="stacked">Contraseña</ion-label>
       <ion-input type="password" placeholder="Ingrese contraseña" formControlName="password"></ion-input>
@@ -60,17 +60,20 @@
       <ion-input type="password" placeholder="Ingrese nuevamente contraseña" [(ngModel)]="verificar_password"
         [ngModelOptions]="{standalone: 'true'}"></ion-input>
     </ion-item>
-    <ion-button type="submit" [disabled]="!alumno.valid">Registrar</ion-button>
-    <ion-button (click)="modificar()">Modificar</ion-button>
-    <ion-button (click)="limpiar()">Limpiar</ion-button>
+    <button id="botoncito" class="azul" type="submit" [disabled]="!alumno.valid">Registrar</button>
+    
+    <button id="botoncito" class="morado" (click)="modificar()">Modificar</button>
+    <button id="botoncito" class="verde" (click)="limpiar()">Limpiar</button>
   </form>
 
-  <h1>LISTA DE USUARIOS</h1>
+  <h2>LISTA DE USUARIOS</h2>
   <ion-list *ngFor="let usuario of usuarios">
+    <hr>
     <p>{{usuario.rut}} - {{usuario.nom_completo}} - {{usuario.fecha_nac}} - {{usuario.semestre}} - {{usuario.tipo_usuario}} </p>
-    <ion-button color="warning" (click)="buscar(usuario.rut)">Buscar</ion-button>
-    <ion-button color="danger" (click)="eliminar(usuario.rut)">Eliminar</ion-button>
+    
+    <div id="iconos" (click)="buscar(usuario.rut)"><img src="assets/img/buscar.png">Buscar</div>
+    <div id="iconos" (click)="eliminar(usuario.rut)"><img src="assets/img/eliminar.png">Eliminar</div>  
+      
   </ion-list>
-
 </ion-content>
 
