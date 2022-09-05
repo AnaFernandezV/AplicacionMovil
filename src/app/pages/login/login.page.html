@@ -1,16 +1,19 @@
+
 <div id="fondo">
-<div id="color-fondo">
+  <div id="color-fondo">
 
-<div id="registrapp">
-  <img src="assets/img/registrApp2.png">
-</div>
-</div><!----cierre div header-->
+    <div id="registrapp">
+      <img src="assets/img/registrApp2.png">
+    </div>
+  </div>
 
-<div class="responsive" id="centrar-contenido">
+  <!----cierre div header-->
+  <div class="responsive" id="centrar-contenido">
 
     <div id="login-img">
-    <img class="responsive-img" src="assets/img/login.png" />
-    </div><!---div imagen-->
+      <img class="responsive-img" src="assets/img/login.png" />
+    </div>
+    <!---div imagen-->
     <ion-card-header>
       <h3>Ingrese Su Correo</h3>
     </ion-card-header>
@@ -23,13 +26,17 @@
         <ion-label>Contraseña</ion-label>
         <ion-input type="password" placeholder="Ingrese contraseña" [(ngModel)]="password"></ion-input>
       </ion-item>
-      <button (click)="login()" id="boton" >INGRESAR</button>
+      <button (click)="login()" id="boton">INGRESAR</button>
     </ion-card-content>
- 
-  <div id="separacion">
-    <a  routerLink='/registrar'>¿No tienes cuenta?</a>
-  </div><!--------cierre div registrar--------->
-  <div id="separacion">
-    <a routerLink='/recuperar-pass'>¿Has olvidado tu contraseña?</a>
-  </div><!-------cierre div recuperar pass------>
-</div><!---div cierre contenido-->
+
+    <div id="separacion">
+      <a routerLink='/registrar'>¿No tienes cuenta?</a>
+    </div>
+    <!--------cierre div registrar--------->
+    <div id="separacion">
+      <a routerLink='/recuperar-pass'>¿Has olvidado tu contraseña?</a>
+    </div>
+    <!-------cierre div recuperar pass------>
+  </div>
+  <!---div cierre contenido-->
+</div>

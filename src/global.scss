@@ -33,9 +33,10 @@
     font-family: cocogoose;
     src: url(../src/assets/font/Cocogoose.ttf);
 }
+////el titulo del header
 h1{
 font-family: 'cocogoose';
-font-size: 28px;
+font-size: 25px;
 
 }
 #color-fondo{
@@ -114,16 +115,6 @@ font-size: 28px;
 @media(max-width: 576px){
 
     .responsive{
-<<<<<<< HEAD
-        width: 100% !important;
-    }
-
-    .responsive-img{
-        width: 60% !important;
-    }
-    
-}    
-=======
         width: 90% !important;
         height: auto;
     }
@@ -134,4 +125,3 @@ font-size: 28px;
     
 }   
 
->>>>>>> 13f9c30 (css casi completo)

@@ -56,6 +56,7 @@ export class HomePage implements OnInit{
   }
 
   eliminar(rutEliminar){
+  
     this.usuarioService.eliminarUsuario(rutEliminar);
   }
 
@@ -107,4 +108,6 @@ export class HomePage implements OnInit{
     await alert.present();
   }
 
+  
+ 
 }

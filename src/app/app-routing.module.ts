@@ -28,8 +28,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/docente/docente.module').then( m => m.DocentePageModule)
   },
   
-<<<<<<< HEAD
-=======
   {
     path: 'alumno',
     loadChildren: () => import('./pages/alumno/alumno.module').then( m => m.AlumnoPageModule)
@@ -40,7 +38,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
   },
   
->>>>>>> 13f9c30 (css casi completo)
   {
     path: 'horario',
     loadChildren: () => import('./pages/horario/horario.module').then( m => m.HorarioPageModule)

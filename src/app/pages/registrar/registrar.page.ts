@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/services/usuario.service';
-
+import * as rutjs from 'rut.js';
 
 
 @Component({
@@ -15,7 +15,8 @@ export class RegistrarPage implements OnInit {
 
   //VAMOS A CREAR EL GRUPO DEL FORMULARIO:
   alumno = new FormGroup({
-    rut : new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9kK]{1}')]),
+    rut : new FormControl('', [Validators.required, ]),
+    
     nom_completo: new FormControl('', [Validators.required, Validators.minLength(3),Validators.pattern(/^[a-z0-9-]/)]),
     correo: new FormControl ('',[Validators.compose([Validators.required, Validators.pattern(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@['duocuc'-'profesor.duoc']+(\.cl)$/), Validators.email]),]),
     fecha_nac: new FormControl('', Validators.required),
@@ -39,6 +40,8 @@ export class RegistrarPage implements OnInit {
   getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2); console.log(this.today); }
 
   //método del formulario
+
+  
   registrar(){
     if (this.alumno.controls.password.value != this.verificar_password) {
       this.alertaContra();
@@ -72,4 +75,9 @@ export class RegistrarPage implements OnInit {
     await alert.present();
   }
 
+
+  
+
 }
+
+
