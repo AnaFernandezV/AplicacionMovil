@@ -1,14 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <div id="color-fondo">
+    <div id="color-header">
       <div class="boton-atras">
         <img src="assets/img/atras.png" routerLink='/login'>  
         </div><!---cierre boton atras -->
         
         <div class="cerrar-sesion">
           <img src="assets/img/logout.png" slot="end" routerLink='/login'>
-          </div><!---cierre cerrar sesion-->
-    <h1>Administrador</h1>
+        </div><!---cierre cerrar sesion-->
+          <h1>Administrador</h1>
       
       </div><!----cierre div header--> 
 
@@ -38,7 +38,7 @@
       <ion-label position="stacked">Semestre</ion-label>
       <ion-input type="number" placeholder="Ingrese semestre" formControlName="semestre"></ion-input>
     </ion-item>
-    
+   
       <ion-list>
         <ion-item>
           <ion-label position="stacked" >Tipo Usuario</ion-label>
@@ -49,7 +49,7 @@
           </ion-select>
         </ion-item>
       </ion-list>
-
+    
     
     <ion-item>
       <ion-label position="stacked">Contraseña</ion-label>
@@ -60,20 +60,23 @@
       <ion-input type="password" placeholder="Ingrese nuevamente contraseña" [(ngModel)]="verificar_password"
         [ngModelOptions]="{standalone: 'true'}"></ion-input>
     </ion-item>
-    <button id="botoncito" class="azul" type="submit" [disabled]="!alumno.valid">Registrar</button>
-    
-    <button id="botoncito" class="morado" (click)="modificar()">Modificar</button>
-    <button id="botoncito" class="verde" (click)="limpiar()">Limpiar</button>
+    <div id="centrar-botoncitos" >
+      <button id="botoncito" class="azul" type="submit" [disabled]="!alumno.valid">Registrar</button>    
+      <button id="botoncito" class="morado" (click)="modificar()">Modificar</button>
+      <button id="botoncito" class="verde" (click)="limpiar()">Limpiar</button>
+    </div>
   </form>
 
-  <h2>LISTA DE USUARIOS</h2>
-  <ion-list *ngFor="let usuario of usuarios">
-    <hr>
-    <p>{{usuario.rut}} - {{usuario.nom_completo}} - {{usuario.fecha_nac}} - {{usuario.semestre}} - {{usuario.tipo_usuario}} </p>
-    
-    <div id="iconos" (click)="buscar(usuario.rut)"><img src="assets/img/buscar.png">Buscar</div>
-    <div id="iconos" (click)="eliminar(usuario.rut)"><img src="assets/img/eliminar.png">Eliminar</div>  
+  <div id="lista-usuarios" >
+    <h2>LISTA DE USUARIOS</h2>
+    <ion-list *ngFor="let usuario of usuarios">
+      <hr>
+      <p>{{usuario.rut}} - {{usuario.nom_completo}} - {{usuario.fecha_nac}} - {{usuario.semestre}} - {{usuario.tipo_usuario}} </p>
       
-  </ion-list>
+      <div id="iconos" (click)="buscar(usuario.rut)"><img src="assets/img/buscar.png">Buscar</div>
+      <div id="iconos" (click)="eliminar(usuario.rut)"><img src="assets/img/eliminar.png">Eliminar</div>  
+        
+    </ion-list>
+  </div>
 </ion-content>
 

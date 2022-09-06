@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
       }else if(usuarioLogin.tipo_usuario == 'docente'){
         this.router.navigate(['/docente'])
       }else {
-        this.router.navigate(['/tabs/alumno'])
+        this.router.navigate(['/tabs/perfil'])
       }
 
     }else{

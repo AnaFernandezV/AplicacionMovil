@@ -56,8 +56,10 @@ export class HomePage implements OnInit{
   }
 
   eliminar(rutEliminar){
-  
-    this.usuarioService.eliminarUsuario(rutEliminar);
+    
+    this.alertaEliminar(rutEliminar);
+    //this.usuarioService.eliminarUsuario(rutEliminar);
+    
   }
 
   buscar(rutBuscar){
@@ -108,6 +110,33 @@ export class HomePage implements OnInit{
     await alert.present();
   }
 
-  
- 
+  async alertaEliminar(rutEliminar) {
+    const alert = await this.alertController.create({
+      header: 'Atención!',
+      subHeader: 'Estas Seguro de eliminar este usuario?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            
+          },
+        },
+        {
+          text: 'Si',
+          role: 'confirm',
+          handler: () => {
+
+            this.usuarioService.eliminarUsuario(rutEliminar);
+
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
 }
+
+
+
