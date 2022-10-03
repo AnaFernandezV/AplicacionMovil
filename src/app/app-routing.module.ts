@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -25,27 +27,37 @@ const routes: Routes = [
   },
   {
     path: 'docente',
-    loadChildren: () => import('./pages/docente/docente.module').then( m => m.DocentePageModule)
+    loadChildren: () => import('./pages/docente/docente.module').then( m => m.DocentePageModule),
+    canActivate: [AuthGuard]
   },
   
   {
     path: 'alumno',
-    loadChildren: () => import('./pages/alumno/alumno.module').then( m => m.AlumnoPageModule)
+    loadChildren: () => import('./pages/alumno/alumno.module').then( m => m.AlumnoPageModule),
+    canActivate: [AuthGuard]
   },
   
   {
     path: 'asistencia',
-    loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
+    loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
+    canActivate: [AuthGuard]
   },
   
   {
     path: 'horario',
-    loadChildren: () => import('./pages/horario/horario.module').then( m => m.HorarioPageModule)
+    loadChildren: () => import('./pages/horario/horario.module').then( m => m.HorarioPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   }
+
 
 ];
 

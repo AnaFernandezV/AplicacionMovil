@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +12,10 @@ export class UsuarioService {
     {
       rut: '11.111.111-1',
       nom_completo: 'Jaime Gonzalez',
-      correo: 'admin@admin.duoc.cl',
+      correo: 'administrador@duoc.cl',
       fecha_nac: '1990-03-24',
       semestre: 1,
-      password: 'jaime123',
+      password: 'admin123',
       tipo_usuario: 'administrador'
     },
     {
@@ -36,7 +38,9 @@ export class UsuarioService {
     }
   ];
 
-  constructor() { }
+  isAuthenticated = new BehaviorSubject(false);
+
+  constructor(private router: Router) { }
 
   //métodos del CRUD:
   agregarUsuario(usuario): boolean{
@@ -64,13 +68,42 @@ export class UsuarioService {
     return this.usuarios;
   }
 
+  //Metodo para evitar entrar de forma ilegal en las URL
+
+  loginUsuario(correo, password) {
+    var usuarioLogin: any;
+    usuarioLogin = this.usuarios.find(u => u.correo == correo && u.password == password);
+    if (usuarioLogin != undefined) {
+      //PARA CAMBIAR EL VALOR A UN BehaviorSubject SE UTILIZA EL METODO .next(valor);
+      this.isAuthenticated.next(true);
+      return usuarioLogin;
+    }
+  }
+
+
+  getAuth(){
+    return this.isAuthenticated.value;
+  }
+
+  logout(){
+    this.isAuthenticated.next(false);
+    this.router.navigate(['/login']);
+  }
+  
+
   //MÉTODO CUSTOMER:
   //validar rut y contraseña: método que recibe rut y password y me entrega un JSON de un usuario
   validarRutPassword(rut, pass){
     return this.usuarios.find(u => u.rut == rut && u.password == pass);
   }
-  validarCorreoPass(correo){
-    return this.usuarios.find(u => u.correo == correo);
+  validarCorreoPass(correo, password){
+    var usuarioLogin: any;
+    usuarioLogin = this.usuarios.find(u => u.correo == correo && u.password == password);
+    if (usuarioLogin != undefined) {
+      //Para Cambiar el valor a un BehaviorSubject se utiliza el metodo .next(valor);
+      this.isAuthenticated.next(true);
+      return usuarioLogin;
+    }
   }
   validarRecuperarPass(correo){
     return this.usuarios.find(u => u.correo == correo);
