@@ -13,10 +13,19 @@ const routes: Routes = [
         path: 'perfil/:rut',
         loadChildren:() => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
       },
+      {
+        path: 'administrar',
+        loadChildren:() => import('../home/home.module').then(m => m.HomePageModule)
+      },
     
       {
         path: 'asistencia',
         loadChildren:() => import('../asistencia/asistencia.module').then(m => m.AsistenciaPageModule)
+      },
+    
+      {
+        path: 'clases',
+        loadChildren:() => import('../clases/clases.module').then(m => m.ClasesPageModule)
       },
       {
         path: 'horario',

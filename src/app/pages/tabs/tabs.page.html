@@ -17,6 +17,11 @@
       <ion-label>Administrar</ion-label>
 
     </ion-tab-button>
+    <ion-tab-button tab="clases" *ngIf="usuario.tipo_usuario == 'docente'">
+      <img src="assets/img/clases.png" id="iconos-tabs">
+      <ion-label>Clases</ion-label>
+
+    </ion-tab-button>
 
     <ion-tab-button tab="horario">
       <img src="assets/img/horario.png" id="iconos-tabs">

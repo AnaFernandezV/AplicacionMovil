@@ -1,7 +1,4 @@
 <div id="color-header">
-  <div class="boton-atras">
-    <img src="assets/img/atras.png" routerLink='/login'>  
-  </div><!---cierre boton atras -->
     
     <div class="cerrar-sesion">
       <img src="assets/img/logout.png" slot="end" routerLink='/login'>
@@ -24,6 +21,7 @@
         <p>Fecha Nacimiento: {{usuario.fecha_nac}}</p>
         <p>Semestre: {{usuario.semestre}}</p>
         <p>Correo:{{usuario.correo}}</p>
+        <p>Tipo usuario: {{usuario.tipo_usuario}}</p>
         
       </div><!---cuerre div informacion perfil-->
       <hr>
