@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router,NavigationExtras } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
   password: string;
 
   constructor(private alertController: AlertController, private router: Router, 
-    private usuarioService: UsuarioService) { }
+    private usuarioService: UsuarioService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
     
@@ -27,18 +27,24 @@ export class LoginPage implements OnInit {
 
     //validar que ingrese los distintos tipos de usuarios
     if (usuarioLogin != undefined) {
-      if(usuarioLogin.tipo_usuario == 'administrador'){
-        this.router.navigate(['/home']);
-      }else if(usuarioLogin.tipo_usuario == 'docente'){
-        this.router.navigate(['/docente'])
-      }else {
-        this.router.navigate(['/tabs/perfil'])
-      }
+     
+      //UNA VEZ QUE VALIDO QUE EXISTE, ENVIARE ESOS DATOS A LA SIGUIENTE PÁGINA:
+      let navigationExtras: NavigationExtras = {
+        state: {
+          usuario: usuarioLogin
+        }
+      };
 
-    }else{
-      this.alertaNovalido();
+      //PARA ENVIAR EL DATO QUE ESTA LISTO, SE ANEXA AL ROUTER!
+      
+      this.router.navigate(['/tabs/perfil/'+usuarioLogin.rut], navigationExtras);
+
+    } else {
+      alert('Usuario o contraseña incorrectos!')
     }
   }
+
+    
 
   //Alertas
   async alertaNovalido() {

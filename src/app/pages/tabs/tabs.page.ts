@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-tabs',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-
-  constructor() { }
+usuario: any;
+  constructor(private activateRoute: ActivatedRoute, private router: Router, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
+    this.usuario =this.router.getCurrentNavigation().extras.state.usuario;
+
+  }
+  logout(){
+    this.usuarioService.logout();
+
   }
 
 }

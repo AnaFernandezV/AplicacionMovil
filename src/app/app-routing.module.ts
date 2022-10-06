@@ -24,30 +24,7 @@ const routes: Routes = [
   {
     path: 'recuperar-pass',
     loadChildren: () => import('./pages/recuperar-pass/recuperar-pass.module').then( m => m.RecuperarPassPageModule)
-  },
-  {
-    path: 'docente',
-    loadChildren: () => import('./pages/docente/docente.module').then( m => m.DocentePageModule),
-    canActivate: [AuthGuard]
-  },
-  
-  {
-    path: 'alumno',
-    loadChildren: () => import('./pages/alumno/alumno.module').then( m => m.AlumnoPageModule),
-    canActivate: [AuthGuard]
-  },
-  
-  {
-    path: 'asistencia',
-    loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
-    canActivate: [AuthGuard]
-  },
-  
-  {
-    path: 'horario',
-    loadChildren: () => import('./pages/horario/horario.module').then( m => m.HorarioPageModule),
-    canActivate: [AuthGuard]
-  },
+  },  
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),

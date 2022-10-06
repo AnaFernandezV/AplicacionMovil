@@ -1,0 +1,42 @@
+<div id="color-header">
+  <div class="boton-atras">
+    <img src="assets/img/atras.png" routerLink='/login'>  
+  </div><!---cierre boton atras -->
+    
+    <div class="cerrar-sesion">
+      <img src="assets/img/logout.png" slot="end" routerLink='/login'>
+    </div><!---cierre cerrar sesion-->
+      <h1>Mi Perfil</h1>
+  
+  </div><!----cierre div header-->
+  
+
+<ion-content>
+  <div id="margen-contenido">
+    <div class="fondo-contenido">
+      <div class="img-alumno">
+        <img src="assets/img/perfil-alumno.png" width="140px">
+      </div><!------cierre imagen perfil-->
+      <b><p>{{usuario.nom_completo}}</p></b>
+      <hr>
+        <div id="informacion-perfil">        
+        <p>Rut: {{usuario.rut}} </p>
+        <p>Fecha Nacimiento: {{usuario.fecha_nac}}</p>
+        <p>Semestre: {{usuario.semestre}}</p>
+        <p>Correo:{{usuario.correo}}</p>
+        
+      </div><!---cuerre div informacion perfil-->
+      <hr>
+        <button id="modificar-perfil">EDITAR</button>
+       
+
+    <div class="qr"><img src="assets/img/QR.png"></div><!---cierre del div QR-->
+  </div><!---cierre fondo contenido-->
+  
+  </div><!---cierre div contenido-->
+</ion-content>
+
+
+
+
+
