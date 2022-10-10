@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
       this.router.navigate(['/tabs/perfil/'+usuarioLogin.rut], navigationExtras);
 
     } else {
-      alert('Usuario o contraseña incorrectos!')
+      this.alertaNovalido();
     }
   }
 
